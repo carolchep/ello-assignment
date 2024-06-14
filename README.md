@@ -6,7 +6,7 @@ Book Assignment View is a React application that allows users to search for book
 
 - Search for books by title and add books to reading list
 
-![Search List](public/assets/searchlist.png)
+![Search List](frontend/public/assets/searchlist.png)
 - Display reading list  and remove books from reading list
 
 ![Search List](public/assets/booklist.png)
