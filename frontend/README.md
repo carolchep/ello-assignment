@@ -5,6 +5,9 @@ Book Assignment View is a React application that allows users to search for book
 ## Features
 
 - Search for books by title
+
+  ![Search List](/ello-book-assignment/frontend/public/assets/searchlist.png)
+
 - Add books to a reading list
 - Remove books from the reading list
 - Error handling for failed data fetching
@@ -26,4 +29,3 @@ To run the project locally, follow these steps:
 2. Navigate to the project directory: frontend directory
 3. npm i 
 4. npm run dev
-Screenshot from 2024-06-14 12-13-33.png
