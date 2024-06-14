@@ -42,7 +42,15 @@ const SearchBar = ({ addBookToReadingList, books }) => {
       />
       {showResults && searchTerm && (
         <ClickAwayListener onClickAway={handleClickAway}>
-          <Paper style={{ position: 'absolute', zIndex: 1, width: '30%', maxHeight: '300px', overflowY: 'auto' }}>
+          <Paper
+            sx={{
+              position: 'absolute',
+              zIndex: 1,
+              width: '30%',
+              maxHeight: '300px',
+              overflowY: 'auto'
+            }}
+          >
             {filteredBooks.map((book, index) => (
               <MenuItem key={index} onClick={() => handleResultClick(book)}>
                 <Grid container spacing={1} alignItems="center">
@@ -51,7 +59,7 @@ const SearchBar = ({ addBookToReadingList, books }) => {
                       component="img"
                       image={book.coverPhotoURL}
                       alt={book.title}
-                      style={{ width: 50, height: 75 }}
+                      sx={{ width: 50, height: 75 }}
                     />
                   </Grid>
                   <Grid item xs>
@@ -59,7 +67,10 @@ const SearchBar = ({ addBookToReadingList, books }) => {
                     <Typography variant="body2" color="textSecondary">{book.author}</Typography>
                   </Grid>
                   <Grid item>
-                    <Button color="primary" variant="contained" size="small" onClick={() => addBookToReadingList(book)}>Add</Button>
+                    <Button color="info" variant="contained" size="small" onClick={() => addBookToReadingList(book)}>
+                      <Typography variant="button" color="white" fontWeight="bold">Add</Typography>
+
+                    </Button>
                   </Grid>
                 </Grid>
               </MenuItem>

@@ -3,37 +3,32 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#28b8b8',
-      contrastText: '#FFFFFF',
+      main: '#335c6E', // Steel Blue
     },
     secondary: {
-      main: '#40E0D0',
+      main: '#40E0D0', // Turquoise
     },
     error: {
-      main: '#F76434',
+      main: '#F76434', // orange red
     },
     warning: {
-      main: '#FFA500',
+      main: '#FABD33', // Yellow
     },
     info: {
-      main: '#00CED1',
+      main: '#28B8B8', // Dark Turquoise
     },
     success: {
-      main: '#008080',
+      main: '#008080', // Teal
     },
     background: {
-      default: '#FFECB3',
+      default: '#FFECB3', // Light Yellow
     },
     text: {
-      primary: '#333333',
-      secondary: '#008080',
+      primary: '#335c6E', // Dark Gray
+      secondary: '#008080', // Teal
+      white: '#FFFFFF', // White
     },
-    light:"#CFFAFA",
-    teal:'#4AA088',
-    yellowdark:'#FAAD00',
-    steelBlue:"#335c6E"
   },
-
   typography: {
     fontFamily: 'Mulish, Arial, sans-serif',
   },

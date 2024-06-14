@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Typography, Grid, Card, CardMedia, CardContent, CardActions, Button, Pagination, Box } from '@mui/material';
 
-const NoBooksImage = 'https://cdn.prod.website-files.com/652e0352ad50feae8734edac/652e0352ad50feae8734f43c_404%20Image%20-enlarged.png';
+ const NoBooksImage ="https://cdn.prod.website-files.com/652e0352ad50feae8734edac/6549d92f5ce5bce22b5418ef_Child%20Image%201.png"
 
 const ReadingList = ({ books, removeBookFromReadingList }) => {
   const [page, setPage] = useState(1);
-  const itemsPerPage = 8; 
+  const itemsPerPage = 8;
 
   const handlePageChange = (event, value) => {
     setPage(value);
@@ -17,21 +17,25 @@ const ReadingList = ({ books, removeBookFromReadingList }) => {
 
   return (
     <div>
-      <Grid container justifyContent="center" p={2}>
-        <Typography variant="h5" gutterBottom color="teal" style={{ fontWeight: 'bold' }}>
-          Reading List
-        </Typography>
-      </Grid>
+      {!isEmpty && (
+        <Grid container justifyContent="center" p={2}>
+          <Typography variant="h5" gutterBottom color="teal" fontWeight="bold">
+            Reading List
+          </Typography>
+        </Grid>
+      )}
       {isEmpty ? (
         <Grid container direction="column" alignItems="center">
           <Grid item>
-            <img src={NoBooksImage} alt="No books image" style={{ width: '300px', height: 'auto' }} />
+            <Box display="flex" justifyContent="center" alignItems="center" height="50vh">
+              <img src={NoBooksImage} alt="No books image" style={{ maxWidth: '100%', maxHeight: '100%' }} />
+            </Box>
           </Grid>
           <Grid item>
-            <Typography variant="body"  color="error">
+            <Typography variant="h6" color="error" align="center" pt={2} fontWeight="bold">
               Oops! There are no books in the reading list.
             </Typography>
-            <Typography variant="body4" color="teal">
+            <Typography variant="h6" color="teal" align="center" fontWeight="bold">
               Start adding some books to your list.
             </Typography>
           </Grid>
@@ -41,14 +45,17 @@ const ReadingList = ({ books, removeBookFromReadingList }) => {
           <Grid container spacing={4}>
             {paginatedBooks.map((book, index) => (
               <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
-                <Card style={{ boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)' }}>
+                <Card elevation={3}>  
                   <CardMedia
                     component="img"
                     image={book.coverPhotoURL}
                     alt={book.title}
                   />
                   <CardContent>
-                    <Typography gutterBottom variant="h6" component="div">
+                    <Typography
+                      gutterBottom
+                      variant="h7"
+                    >
                       {book.title}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
@@ -64,7 +71,7 @@ const ReadingList = ({ books, removeBookFromReadingList }) => {
               </Grid>
             ))}
           </Grid>
-          <Box display="flex" justifyContent="center" marginTop="20px">
+          <Box display="flex" justifyContent="center" mt="20px">
             <Pagination
               count={Math.ceil(books.length / itemsPerPage)}
               page={page}
@@ -76,6 +83,8 @@ const ReadingList = ({ books, removeBookFromReadingList }) => {
       )}
     </div>
   );
-};
+ }  
+   
+ 
 
 export default ReadingList;

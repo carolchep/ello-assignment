@@ -1,8 +1,29 @@
-# React + Vite
+# Book Assignment View
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Book Assignment View is a React application that allows users to search for books and add them to their reading list. It fetches book data from a GraphQL endpoint using Apollo Client.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Search for books by title
+- Add books to a reading list
+- Remove books from the reading list
+- Error handling for failed data fetching
+
+## Technologies Used
+
+- React: A JavaScript library for building user interfaces
+- Material-UI: A popular React UI framework for designing responsive web applications
+- Apollo Client: A comprehensive state management library for managing GraphQL data in React applications
+
+## Installation
+
+To run the project locally, follow these steps:
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/carolchep/ello-assignment
+2. Navigate to the project directory: frontend directory
+3. npm i 
+4. npm run dev
+Screenshot from 2024-06-14 12-13-33.png
