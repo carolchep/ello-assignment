@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Typography, Box, Grid } from '@mui/material';
-import { CardMedia } from '@mui/material';
+import { Container, Typography, Box, Grid, CardMedia } from '@mui/material';
 import SearchBar from './components/searchbar';
 import ReadingList from './components/readinglist';
 import { useQuery, gql } from '@apollo/client';
 import Alert from '@mui/material/Alert';
+
+interface Book {
+  author: string;
+  coverPhotoURL: string;
+  readingLevel: string;
+  title: string;
+}
 
 const GET_BOOKS = gql`
   query Books {
@@ -17,32 +23,28 @@ const GET_BOOKS = gql`
   }
 `;
 
-const App = () => {
+const App: React.FC = () => {
   const { loading, error, data } = useQuery(GET_BOOKS);
-  const [books, setBooks] = useState([]);
-  const [readingList, setReadingList] = useState([]);
-  const [message, setMessage] = useState('');
-  // Effect to update books state when data changes
+  const [books, setBooks] = useState<Book[]>([]);
+  const [readingList, setReadingList] = useState<Book[]>([]);
+  const [message, setMessage] = useState<string>('');
 
   useEffect(() => {
     if (data && data.books) {
       setBooks(data.books);
     }
   }, [data]);
-  // Effect to load reading list from local storage
 
   useEffect(() => {
-    const savedReadingList = JSON.parse(localStorage.getItem('readingList')) || [];
+    const savedReadingList = JSON.parse(localStorage.getItem('readingList') || '[]') as Book[];
     setReadingList(savedReadingList);
   }, []);
-  // Effect to save reading list to local storage
 
   useEffect(() => {
     localStorage.setItem('readingList', JSON.stringify(readingList));
   }, [readingList]);
 
-  // Function to add a book to reading list
-  const addBookToReadingList = (book) => {
+  const addBookToReadingList = (book: Book) => {
     const isAlreadyAdded = readingList.map(item => item.title).includes(book.title);
 
     if (!isAlreadyAdded) {
@@ -53,9 +55,8 @@ const App = () => {
       setMessage(`You've already added ${book.title} to your reading list.`);
     }
   };
-  // Function to remove a book from reading list
 
-  const removeBookFromReadingList = (title) => {
+  const removeBookFromReadingList = (title: string) => {
     setReadingList(readingList.filter(book => book.title !== title));
   };
 

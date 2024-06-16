@@ -1,10 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, ChangeEvent } from 'react';
 import { TextField, CardMedia, Typography, Paper, MenuItem, ClickAwayListener, Button, Grid } from '@mui/material';
 
-const SearchBar = ({ addBookToReadingList, books }) => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [showResults, setShowResults] = useState(false);
-  const [filteredBooks, setFilteredBooks] = useState([]);
+interface Book {
+  title: string;
+  author: string;
+  readingLevel: string;
+  coverPhotoURL: string;
+}
+
+interface SearchBarProps {
+  addBookToReadingList: (book: Book) => void;
+  books: Book[];
+}
+
+const SearchBar: React.FC<SearchBarProps> = ({ addBookToReadingList, books }) => {
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [showResults, setShowResults] = useState<boolean>(false);
+  const [filteredBooks, setFilteredBooks] = useState<Book[]>([]);
 
   useEffect(() => {
     setFilteredBooks(
@@ -14,12 +26,12 @@ const SearchBar = ({ addBookToReadingList, books }) => {
     );
   }, [books, searchTerm]);
 
-  const handleSearchChange = (e) => {
+  const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
     setShowResults(true);
   };
 
-  const handleResultClick = (book) => {
+  const handleResultClick = (book: Book) => {
     addBookToReadingList(book);
     setShowResults(false);
     setSearchTerm('');
@@ -38,7 +50,7 @@ const SearchBar = ({ addBookToReadingList, books }) => {
         margin="normal"
         value={searchTerm}
         onChange={handleSearchChange}
-        InputProps={{ endAdornment: !filteredBooks.length && <Typography variant="caption" color="error">we dont have the book at the moment</Typography> }}
+        InputProps={{ endAdornment: !filteredBooks.length && <Typography variant="caption" color="error">We don't have the book at the moment</Typography> }}
       />
       {showResults && searchTerm && (
         <ClickAwayListener onClickAway={handleClickAway}>
@@ -69,7 +81,6 @@ const SearchBar = ({ addBookToReadingList, books }) => {
                   <Grid item>
                     <Button color="info" variant="contained" size="small" onClick={() => addBookToReadingList(book)}>
                       <Typography variant="button" color="white" fontWeight="bold">Add</Typography>
-
                     </Button>
                   </Grid>
                 </Grid>

@@ -1,13 +1,24 @@
 import React, { useState } from 'react';
 import { Typography, Grid, Card, CardMedia, CardContent, CardActions, Button, Pagination, Box } from '@mui/material';
 
- const NoBooksImage ="https://cdn.prod.website-files.com/652e0352ad50feae8734edac/6549d92f5ce5bce22b5418ef_Child%20Image%201.png"
+interface Book {
+  title: string;
+  author: string;
+  coverPhotoURL: string;
+}
 
-const ReadingList = ({ books, removeBookFromReadingList }) => {
+interface ReadingListProps {
+  books: Book[];
+  removeBookFromReadingList: (title: string) => void;
+}
+
+const NoBooksImage = "https://cdn.prod.website-files.com/652e0352ad50feae8734edac/6549d92f5ce5bce22b5418ef_Child%20Image%201.png";
+
+const ReadingList: React.FC<ReadingListProps> = ({ books, removeBookFromReadingList }) => {
   const [page, setPage] = useState(1);
   const itemsPerPage = 8;
 
-  const handlePageChange = (event, value) => {
+  const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
   };
 
@@ -54,7 +65,7 @@ const ReadingList = ({ books, removeBookFromReadingList }) => {
                   <CardContent>
                     <Typography
                       gutterBottom
-                      variant="h7"
+                      variant="h5"
                     >
                       {book.title}
                     </Typography>
@@ -83,8 +94,6 @@ const ReadingList = ({ books, removeBookFromReadingList }) => {
       )}
     </div>
   );
- }  
-   
- 
+};
 
 export default ReadingList;
