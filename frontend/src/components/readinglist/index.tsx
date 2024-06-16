@@ -65,7 +65,7 @@ const ReadingList: React.FC<ReadingListProps> = ({ books, removeBookFromReadingL
                   <CardContent>
                     <Typography
                       gutterBottom
-                      variant="h5"
+                      variant="h7"
                     >
                       {book.title}
                     </Typography>

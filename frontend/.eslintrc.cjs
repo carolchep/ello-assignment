@@ -6,15 +6,15 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
     'plugin:react-hooks/recommended',
-    'plugin:@typescript-eslint/recommended', // Add TypeScript plugin
+    'plugin:@typescript-eslint/recommended', 
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
-  parser: '@typescript-eslint/parser', // Specify the TypeScript parser
+  parser: '@typescript-eslint/parser', 
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
   settings: { react: { version: '18.2' } },
   plugins: [
     'react-refresh',
-    '@typescript-eslint', // Add TypeScript plugin
+    '@typescript-eslint', 
   ],
   rules: {
     'react/jsx-no-target-blank': 'off',
@@ -26,8 +26,8 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
-    '@typescript-eslint/no-unused-vars': ['off'], // Enable TypeScript-specific rule
-    '@typescript-eslint/no-undef': 'off', // Enable TypeScript-specific rule
-    'react/no-unescaped-entities': 'off', // Disable the no-unescaped-entities rule
+    '@typescript-eslint/no-unused-vars': ['off'], 
+    '@typescript-eslint/no-undef': 'off', 
+    'react/no-unescaped-entities': 'off', 
   },
 }
