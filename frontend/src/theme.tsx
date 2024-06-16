@@ -26,7 +26,6 @@ const theme = createTheme({
     text: {
       primary: '#335c6E', // Dark Gray
       secondary: '#008080', // Teal
-      white: '#FFFFFF', // White
     },
   },
   typography: {

@@ -19,6 +19,9 @@ Book Assignment View is a React application that allows users to search for book
 - paginating the books
 
 
+Responsivity 
+![Search List](frontend/public/assets/respnsive.png)
+
 
 
 ## Technologies Used
@@ -26,6 +29,7 @@ Book Assignment View is a React application that allows users to search for book
 - React: A JavaScript library for building user interfaces
 - Material-UI: A popular React UI framework for designing responsive web applications
 - Apollo Client: A comprehensive state management library for managing GraphQL data in React applications
+- TypeScript
 
 ## Additional Features
 
